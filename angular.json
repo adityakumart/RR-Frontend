@@ -73,6 +73,9 @@
             },
             "development": {
               "browserTarget": "RR:build:development"
+            },
+            "options":{
+              "port": 5000
             }
           },
           "defaultConfiguration": "development"
