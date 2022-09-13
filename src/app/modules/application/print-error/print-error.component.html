@@ -1,0 +1,6 @@
+<span class="text-danger" *ngIf="control && control.errors && (control.dirty || control.touched)">
+    <mat-hint *ngIf="control.errors.required">Please enter {{ctrlName}}. It can’t be blank</mat-hint>
+    <mat-hint *ngIf="control.errors.minlength">Your {{ctrlName}} Should Contain Atleast {{allcontrol.errors.minlength.requiredLength}} Characters</mat-hint>
+    <mat-hint *ngIf="control.errors.maxlength">Your {{ctrlName}} Should Contain Atleast {{allcontrol.errors.maxlength.requiredLength}} Characters</mat-hint>
+    <mat-hint *ngIf="control.errors.email">Please Enter the valid E-mail ID.</mat-hint>
+</span>
