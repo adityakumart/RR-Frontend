@@ -44,21 +44,37 @@ export class HomeComponent implements OnInit {
     ) {
 
         this.addform = addformbuild.group({
-            name: ['Aditya Kumar', [Validators.required]],
-            fatherOrHusband: ['Murthy', [Validators.required]],
-            address: ['23-1-1/1B, Rajgopal center', [Validators.required]],
-            drivingLicenseNo: ['1234567890', [Validators.required]],
-            drivingLicenseIssuedDate: [new Date(), [Validators.required]],
-            drivingLicenseExpiryDate: [new Date(), [Validators.required]],
-            drivingLicenseAuthority: ['ads asd', [Validators.required]],
-            vehicleNo: ['AP BZ 2021', [Validators.required]],
-            agreementFromDate: [new Date(), [Validators.required]],
-            agreementToDate: [new Date(), [Validators.required]],
-            certificateValidFromDate: [new Date(), [Validators.required]],
-            certificateValidToDate: [new Date(), [Validators.required]],
-            pucValid: [new Date(), [Validators.required]],
-            insuranceValid: [new Date(), [Validators.required]],
+            name: ['', [Validators.required]],
+            fatherOrHusband: ['', [Validators.required]],
+            address: ['', [Validators.required]],
+            drivingLicenseNo: ['', [Validators.required]],
+            drivingLicenseIssuedDate: ['', [Validators.required]],
+            drivingLicenseExpiryDate: ['', [Validators.required]],
+            drivingLicenseAuthority: ['', [Validators.required]],
+            vehicleNo: ['', [Validators.required]],
+            agreementFromDate: ['', [Validators.required]],
+            agreementToDate: ['', [Validators.required]],
+            certificateValidFromDate: ['', [Validators.required]],
+            certificateValidToDate: ['', [Validators.required]],
+            pucValid: ['', [Validators.required]],
+            insuranceValid: ['', [Validators.required]],
 
+
+            
+            // name: ['Aditya Kumar', [Validators.required]],
+            // fatherOrHusband: ['Murthy', [Validators.required]],
+            // address: ['23-1-1/1B, Rajgopal center', [Validators.required]],
+            // drivingLicenseNo: ['1234567890', [Validators.required]],
+            // drivingLicenseIssuedDate: [new Date(), [Validators.required]],
+            // drivingLicenseExpiryDate: [new Date(), [Validators.required]],
+            // drivingLicenseAuthority: ['ads asd', [Validators.required]],
+            // vehicleNo: ['AP BZ 2021', [Validators.required]],
+            // agreementFromDate: [new Date(), [Validators.required]],
+            // agreementToDate: [new Date(), [Validators.required]],
+            // certificateValidFromDate: [new Date(), [Validators.required]],
+            // certificateValidToDate: [new Date(), [Validators.required]],
+            // pucValid: [new Date(), [Validators.required]],
+            // insuranceValid: [new Date(), [Validators.required]],
 
         });
     }
