@@ -1,6 +1,9 @@
-<span class="text-danger" *ngIf="control && control.errors && (control.dirty || control.touched)">
-    <mat-hint *ngIf="control.errors.required">Please enter {{ctrlName}}. It can’t be blank</mat-hint>
-    <mat-hint *ngIf="control.errors.minlength">Your {{ctrlName}} Should Contain Atleast {{allcontrol.errors.minlength.requiredLength}} Characters</mat-hint>
-    <mat-hint *ngIf="control.errors.maxlength">Your {{ctrlName}} Should Contain Atleast {{allcontrol.errors.maxlength.requiredLength}} Characters</mat-hint>
-    <mat-hint *ngIf="control.errors.email">Please Enter the valid E-mail ID.</mat-hint>
-</span>
+<div class="text-danger" *ngIf="control && control.errors && (control.dirty || control.touched)">
+    <div *ngIf="control.errors.required">Please enter {{ctrlName}}. It can’t be blank</div>
+    <div *ngIf="control.errors.minlength">Your {{ctrlName}} Should Contain Atleast {{allcontrol.errors.minlength.requiredLength}} Characters</div>
+    <div *ngIf="control.errors.maxlength">Your {{ctrlName}} Should Contain Atleast {{allcontrol.errors.maxlength.requiredLength}} Characters</div>
+    <div *ngIf="control.errors.email">Please Enter the valid E-mail ID.</div>
+    <div *ngIf="control.hasError('matStartDateInvalid')">Invalid start date
+    </div>
+    <div *ngIf="control.hasError('matEndDateInvalid')">Invalid end date</div>
+</div>

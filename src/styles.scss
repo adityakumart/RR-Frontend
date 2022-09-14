@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/theming";
+@import "./app/shared/css/bootstrap.scss";
+
+
+// custom styles
+
+.underline {
+    text-decoration: underline;
+}
+
+.tt-upper {
+    text-transform: uppercase;
+    ;
+}
+
+// custom styles
+
+
+// reducing height material 
+
+
+.mat-form-field:not(.mat-form-field-has-label) .mat-form-field-infix {
+    border-top-width: 0 !important;
+    padding: 10px 0;
+}
+
+.mat-form-field:not(.mat-form-field-has-label) .mat-select-arrow-wrapper {
+    margin-top: 8px;
+}
+
+.mat-form-field.mat-form-field-has-label .mat-form-field-infix {
+    border-top-width: 11px !important;
+    padding: 8px 0px;
+}
+
+.mat-error {
+    font-size: 13px;
+    // padding-top: 2px;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 14px;
+}
+.mat-form-field:not(.mat-form-field-should-float) .mat-form-field-label{
+    margin-top: -8px;
+}
+
+// reducing height material 

@@ -1,1 +1,262 @@
-<p>home works!</p>
+<div [hidden]="!showAgreement">
+    <form [formGroup]='addform' (ngSubmit)='addcandidate(addform)' fxLayout="row wrap" fxLayoutAlign="center center">
+        <mat-card fxFlex.xs="90" fxFlex.sm="85" fxFlex="75" class="customMatCard mt-3 mb-4">
+            <mat-card-header class="customMatCardHeader">
+                <mat-card-title>Details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class='mx-5 pt-4'>
+                <div fxLayout="row wrap" fxLayoutAlign="center center">
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Name </mat-label>
+                        <input matInput type="text" formControlName="name" maxlength="50" required>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.name" ctrlName='Name'></app-print-error>
+                        </mat-hint>
+                        <mat-hint align="end">
+                            {{form.name.value?.length == undefined ? 0 : form.name.value?.length}}
+                            / 50</mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Father / Husband Name </mat-label>
+                        <input matInput type="text" formControlName="fatherOrHusband" maxlength="50" required>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.fatherOrHusband" ctrlName='Father / Husband Name'>
+                            </app-print-error>
+                        </mat-hint>
+                        <mat-hint align="end">
+                            {{form.fatherOrHusband.value?.length == undefined ? 0 : form.fatherOrHusband.value?.length}}
+                            / 50</mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="96" fxFlex.xs="100">
+                        <mat-label>Address</mat-label>
+                        <input matInput type="text" formControlName="address" maxlength="100" required>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.address" ctrlName='Address'></app-print-error>
+                        </mat-hint>
+                        <mat-hint align="end">
+                            {{form.address.value?.length == undefined ? 0 : form.address.value?.length}}
+                            / 100</mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>License # </mat-label>
+                        <input matInput type="text" formControlName="drivingLicenseNo" maxlength="50" required>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.drivingLicenseNo" ctrlName='License No'></app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Issued Authority </mat-label>
+                        <input matInput type="text" formControlName="drivingLicenseAuthority" maxlength="50" required>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.drivingLicenseAuthority" ctrlName='Issued Authority'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Issued Date</mat-label>
+                        <input matInput [matDatepicker]="issueDate" formControlName="drivingLicenseIssuedDate" required>
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matSuffix [for]="issueDate"></mat-datepicker-toggle>
+                        <mat-datepicker #issueDate></mat-datepicker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.drivingLicenseIssuedDate" ctrlName='Issued Date'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Expiry Date</mat-label>
+                        <input matInput [matDatepicker]="expiryDate" formControlName="drivingLicenseExpiryDate"
+                            required>
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matSuffix [for]="expiryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #expiryDate></mat-datepicker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.drivingLicenseExpiryDate" ctrlName='Expiry Date'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Vehicle # </mat-label>
+                        <input matInput type="text" formControlName="vehicleNo" maxlength="50" required>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.vehicleNo" ctrlName='Vehicle #'></app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Agreement date range</mat-label>
+                        <mat-date-range-input [rangePicker]="agreement">
+                            <input matStartDate formControlName="agreementFromDate" placeholder="Start date">
+                            <input matEndDate formControlName="agreementToDate" placeholder="End date">
+                        </mat-date-range-input>
+                        <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matSuffix [for]="agreement"></mat-datepicker-toggle>
+                        <mat-date-range-picker #agreement></mat-date-range-picker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.agreementFromDate" ctrlName='Agreement From Date'>
+                            </app-print-error>
+                            <app-print-error [control]="form.agreementToDate" ctrlName='Agreement To Date'>
+                            </app-print-error>
+                        </mat-hint>
+
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Certificate Valid date range</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                            <input matStartDate formControlName="certificateValidFromDate" placeholder="Start date">
+                            <input matEndDate formControlName="certificateValidToDate" placeholder="End date">
+                        </mat-date-range-input>
+                        <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.certificateValidFromDate"
+                                ctrlName='Certificate Valid From Date'></app-print-error>
+                            <app-print-error [control]="form.certificateValidToDate"
+                                ctrlName='Certificate Valid To Date'>
+                            </app-print-error>
+                        </mat-hint>
+
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <div fxFlex="47" fxFlex.xs="100"></div>
+                    <div fxFlex="2"></div>
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>PUC Valid till</mat-label>
+                        <input matInput [matDatepicker]="puc" formControlName="pucValid" required>
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker #puc></mat-datepicker>
+                        <mat-datepicker-toggle matSuffix [for]="puc"></mat-datepicker-toggle>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.pucValid" ctrlName='PUC Valid till'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Insurance Valid</mat-label>
+                        <input matInput [matDatepicker]="insurance" formControlName="insuranceValid" required>
+                        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                        <mat-datepicker #insurance></mat-datepicker>
+                        <mat-datepicker-toggle matSuffix [for]="insurance"></mat-datepicker-toggle>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.insuranceValid" ctrlName='Insurance Valid'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <div fxFlex="47"></div>
+                    <div fxFlex="2"></div>
+                    <!-- <div class="text-center fw-600 underline tt-upper pt-4 pb-2" fxFlex="100">DETAILS OF VEHICLE’S OWNER</div> -->
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="15px">
+                    <button mat-stroked-button color="warn" type="submit">Preview</button>
+                    <button mat-stroked-button type="button" (click)="clearAll()">Cancel</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>
+<div id="agreement" [hidden]="showAgreement">
+    <div fxLayout="column" fxLayoutAlign="start stretch">
+        <div fxLayout="row" fxLayoutAlign="end start" class="mt-3">
+            <button mat-icon-button color="warn" (click)="generatePDF()">
+                <mat-icon>download</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="editform()">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+        <div id="printArea" #printArea>
+            <div class="text-center fw-600 underline tt-upper pt-3 pb-2 fs-16">AUTHORIZED CUM AGREEMENT LETTER</div>
+
+            <div class="paragraph textIndent50">
+                I do hereby authorized to Mr.
+                <span class="values">{{fullData.name}}</span> S/o.
+                <span class="values">{{fullData.fatherOrHusband}}</span> Residing at
+                <span class="values">{{fullData.address}}</span>,
+                presently residing at DO. His/her Driving License Number:
+                <span class="values">{{fullData.drivingLicenseNo}}</span>,
+                dated
+                <span class="values">{{fullData.drivingLicenseIssuedDate}}</span> valid up to by issuing authority <span
+                    class="values">{{fullData.drivingLicenseExpiryDate}}</span>
+                Licensing authority
+                <span class="values">{{fullData.drivingLicenseAuthority}}</span> to drive my vehicle number: <span
+                    class="values">{{fullData.vehicleNo}}</span> as purely
+                temporary from
+                <span class="values">{{fullData.agreementFromDate}}</span> to
+                <span class="values">{{fullData.agreementToDate}}</span> .He/she is
+                completely responsible for my above noted vehicle. He/she is solely responsible for any Accident, Theft,
+                Penalty, Fine or any Challan issued by any State (INDIA) police during this period. This Certificate is
+                valid from
+                <span class="values">{{fullData.certificateValidFromDate}}</span>to
+                <span class="values">{{fullData.certificateValidToDate}}</span> .
+            </div>
+
+
+            <div class="text-center fw-600 underline tt-upper pt-3 pb-2 fs-16">DETAILS OF VEHICLE’S OWNER</div>
+
+            <div class="paragraph textIndent50">
+                Owner Name Mr.
+                <span class="fw-600 underline">SEETHA RAM JAMI</span> S/o.
+                <span class="fw-600 underline">APPARAO JAMI</span>, Vehicle Number:
+                <span class="values">{{fullData.vehicleNo}}</span> , Certificate of Tax valid up to
+                lifetime,
+                PUC valid up to
+                <span class="values">{{fullData.pucValid}}</span>, Insurance valid up to dated
+                <span class="values">{{fullData.insuranceValid}}</span>.
+            </div>
+
+            <div class="paragraph textIndent50">
+                Owner have also handed over all the requested valid papers and ORIGINAL Documents of the
+                above said vehicle to
+                the driver. Owner doesn’t have any liabilities of Puncture and Battery problem. If any litigation in the
+                matter
+                of the said vehicle arises or any sort of
+                <span class="fw-600">Accident Happens</span> Mr.<span class="values">{{fullData.name}}</span> will be
+                held responsible in future for
+                driving, caring and using of the above said vehicle and not the Owner i.e.; <span
+                    class="fw-600 underline">SEETHA RAM JAMI</span>.
+            </div>
+
+            <div class="paragraph">In case of any disputes the decision of the owner SEETHA RAM JAMI will be final and
+                binding. </div>
+            <div class="paragraph">Litigation, if any subjected to Jurisdiction of Court of Kakinada.</div>
+            <div class="paragraph">I <span class="fw-600 underline">SEETHA RAM JAMI</span>, DECLARE UNDER PENALTY OF
+                PERJURY
+                UNDER THE LAWS OF THE STATE OF ANDHRAPRADESH, THAT THE ABOVE
+                CONTENTS ARE TRUE AND CORRECT TO THE BEST OF MY KNOWLEDGE AND BELIEF.</div>
+
+
+            <div class="pt-7" fxLayout="row" fxLayoutAlign="space-evenly center">
+                <div>Signature of the Driver </div>
+                <div>Signature of the Vehicle Owner</div>
+            </div>
+        </div>
+    </div>
+</div>
