@@ -1,4 +1,4 @@
-
+@use 'sass:math';
 $fontsize: (8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
 
 @each $fs in $fontsize {
@@ -21,10 +21,10 @@ $sides: (top, right, bottom, left);
 
 @each $space in $spaces {
     .m-#{$space} {
-        margin: #{$space/4}rem;
+        margin: #{math.div($space,4)}rem;
     }
     .p-#{$space} {
-        padding: #{$space/4}rem;
+        padding: #{math.div($space,4)}rem;
     }
     @each $side in $sides {
         .m#{str-slice($side, 0, 1)}-#{$space} {
