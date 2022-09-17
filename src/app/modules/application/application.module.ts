@@ -16,13 +16,21 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { PrintErrorComponent } from './print-error/print-error.component';
 import { ApplicationComponent } from './application/application.component';
-
+import { AadharFormatDirective } from 'src/app/shared/directives/aadhar-validation/aadhar-format.directive';
+import { UsPhoneFormatDirective } from 'src/app/shared/directives/phone-validation/us-phone-format.directive';
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
 
 @NgModule({
   declarations: [
     HomeComponent,
     PrintErrorComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    AadharFormatDirective,
+    UsPhoneFormatDirective
   ],
   imports: [
     CommonModule,
@@ -37,7 +45,10 @@ import { ApplicationComponent } from './application/application.component';
     MatNativeDateModule,
     MatButtonModule,
     MatIconModule,
-    ApplicationRoutingModule
+    ApplicationRoutingModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule
   ],
   exports: [
     ReactiveFormsModule,

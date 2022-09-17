@@ -1,11 +1,13 @@
 <div [hidden]="!showAgreement">
     <form [formGroup]='addform' (ngSubmit)='addcandidate(addform)' fxLayout="row wrap" fxLayoutAlign="center center">
         <mat-card fxFlex.xs="90" fxFlex.sm="85" fxFlex="75" class="customMatCard mt-3 mb-4">
-            <mat-card-header class="customMatCardHeader">
-                <mat-card-title>Details</mat-card-title>
-            </mat-card-header>
+            <!-- <mat-card-header class="customMatCardHeader">
+            </mat-card-header> -->
             <mat-card-content class='mx-5 pt-4'>
                 <div fxLayout="row wrap" fxLayoutAlign="center center">
+                    <div fxFlex="100">
+                        <mat-card-title class="pb-2">Customer Details</mat-card-title>
+                    </div>
                     <div fxFlex="2"></div>
                     <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
                         <mat-label>Name </mat-label>
@@ -68,6 +70,27 @@
 
                     <div fxFlex="2"></div>
                     <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Phone # </mat-label>
+                        <input matInput type="text" formControlName="phoneNo" maxlength="50" required appUsPhoneFormat>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.phoneNo" ctrlName='Phone Number'></app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Aadhar # </mat-label>
+                        <input matInput type="text" formControlName="aadharNumber" maxlength="50" required
+                            appAadharFormat>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.aadharNumber" ctrlName='Aadhar Number'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+
+
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
                         <mat-label>Issued Date</mat-label>
                         <input matInput [matDatepicker]="issueDate" formControlName="drivingLicenseIssuedDate" required>
                         <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
@@ -92,7 +115,9 @@
                         </mat-hint>
                     </mat-form-field>
                     <div fxFlex="2"></div>
-
+                    <div fxFlex="100" class="pt-3">
+                        <mat-card-title class="pb-2">Vehicle Details</mat-card-title>
+                    </div>
                     <div fxFlex="2"></div>
                     <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
                         <mat-label>Vehicle # </mat-label>
@@ -101,26 +126,6 @@
                             <app-print-error [control]="form.vehicleNo" ctrlName='Vehicle #'></app-print-error>
                         </mat-hint>
                     </mat-form-field>
-                    <div fxFlex="2"></div>
-                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
-                        <mat-label>Agreement date range</mat-label>
-                        <mat-date-range-input [rangePicker]="agreement">
-                            <input matStartDate formControlName="agreementFromDate" placeholder="Start date">
-                            <input matEndDate formControlName="agreementToDate" placeholder="End date">
-                        </mat-date-range-input>
-                        <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
-                        <mat-datepicker-toggle matSuffix [for]="agreement"></mat-datepicker-toggle>
-                        <mat-date-range-picker #agreement></mat-date-range-picker>
-                        <mat-hint align="start">
-                            <app-print-error [control]="form.agreementFromDate" ctrlName='Agreement From Date'>
-                            </app-print-error>
-                            <app-print-error [control]="form.agreementToDate" ctrlName='Agreement To Date'>
-                            </app-print-error>
-                        </mat-hint>
-
-                    </mat-form-field>
-                    <div fxFlex="2"></div>
-
                     <div fxFlex="2"></div>
                     <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
                         <mat-label>Certificate Valid date range</mat-label>
@@ -141,8 +146,8 @@
 
                     </mat-form-field>
                     <div fxFlex="2"></div>
-                    <div fxFlex="47" fxFlex.xs="100"></div>
-                    <div fxFlex="2"></div>
+
+
 
                     <div fxFlex="2"></div>
                     <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
@@ -170,7 +175,65 @@
                         </mat-hint>
                     </mat-form-field>
                     <div fxFlex="2"></div>
-                    <div fxFlex="47"></div>
+
+                    <div fxFlex="100">
+                        <mat-card-title class="pb-2">Agreement Details</mat-card-title>
+                    </div>
+                    <div fxFlex="2"></div>
+                    <!-- <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Agreement From</mat-label>
+                        <mat-date-range-input [rangePicker]="agreement">
+                            <input matStartDate formControlName="agreementFromDate" placeholder="Start date">
+                            <input matEndDate formControlName="agreementToDate" placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="agreement"></mat-datepicker-toggle>
+                        <mat-date-range-picker #agreement></mat-date-range-picker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.agreementFromDate" ctrlName='Agreement From Date'>
+                            </app-print-error>
+                            <app-print-error [control]="form.agreementToDate" ctrlName='Agreement To Date'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div> -->
+
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Agreement From</mat-label>
+                        <input matInput [ngxMatDatetimePicker]="agreeFrom" placeholder="Choose a date"
+                            formControlName="agreementFromDate">
+                        <mat-datepicker-toggle matSuffix [for]="$any(agreeFrom)"></mat-datepicker-toggle>
+                        <ngx-mat-datetime-picker #agreeFrom [showSpinners]="true" [showSeconds]="false" [stepHour]="1"
+                            [stepMinute]="1" [stepSecond]="1" [touchUi]="false" [enableMeridian]="false"
+                            [disableMinute]="false" [hideTime]="false">
+                            <!-- Custom icon or text of Apply icon -->
+                            <ng-template>
+                                <!-- <mat-icon>star</mat-icon> -->
+                                <span>OK</span>
+                            </ng-template>
+                        </ngx-mat-datetime-picker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.agreementToDate" ctrlName='Agreement To Date'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
+                    <div fxFlex="2"></div>
+                    <mat-form-field appearance="outline" class="pb-3" fxFlex="47" fxFlex.xs="100">
+                        <mat-label>Agreement To</mat-label>
+                        <input matInput [ngxMatDatetimePicker]="agreeTo" placeholder="Choose a date"
+                            formControlName="agreementToDate">
+                        <mat-datepicker-toggle matSuffix [for]="$any(agreeTo)"></mat-datepicker-toggle>
+                        <ngx-mat-datetime-picker #agreeTo [showSpinners]="true" [showSeconds]="false" [stepHour]="1"
+                            [stepMinute]="1" [stepSecond]="1" [touchUi]="false" [enableMeridian]="false"
+                            [disableMinute]="false" [hideTime]="false">
+                            <ng-template>
+                                <span>OK</span>
+                            </ng-template>
+                        </ngx-mat-datetime-picker>
+                        <mat-hint align="start">
+                            <app-print-error [control]="form.agreementToDate" ctrlName='Agreement To Date'>
+                            </app-print-error>
+                        </mat-hint>
+                    </mat-form-field>
                     <div fxFlex="2"></div>
                     <!-- <div class="text-center fw-600 underline tt-upper pt-4 pb-2" fxFlex="100">DETAILS OF VEHICLE’S OWNER</div> -->
                 </div>
@@ -192,70 +255,85 @@
                 <mat-icon>edit</mat-icon>
             </button>
         </div>
+        <!-- https://www.freakyjolly.com/how-to-export-pdf-from-html-in-angular-12/ -->
         <div id="printArea" #printArea>
-            <div class="text-center fw-600 underline tt-upper pt-3 pb-2 fs-16">AUTHORIZED CUM AGREEMENT LETTER</div>
+            <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+            <div style="font-family: 11px; font-family:'Times New Roman', Times, serif;">
+                <div class="text-center fw-600 underline tt-upper pt-3 pb-2 fs-16">AUTHORIZED CUM AGREEMENT LETTER</div>
 
-            <div class="paragraph textIndent50">
-                I do hereby authorized to Mr.
-                <span class="values">{{fullData.name}}</span> S/o.
-                <span class="values">{{fullData.fatherOrHusband}}</span> Residing at
-                <span class="values">{{fullData.address}}</span>,
-                presently residing at DO. His/her Driving License Number:
-                <span class="values">{{fullData.drivingLicenseNo}}</span>,
-                dated
-                <span class="values">{{fullData.drivingLicenseIssuedDate}}</span> valid up to by issuing authority <span
-                    class="values">{{fullData.drivingLicenseExpiryDate}}</span>
-                Licensing authority
-                <span class="values">{{fullData.drivingLicenseAuthority}}</span> to drive my vehicle number: <span
-                    class="values">{{fullData.vehicleNo}}</span> as purely
-                temporary from
-                <span class="values">{{fullData.agreementFromDate}}</span> to
-                <span class="values">{{fullData.agreementToDate}}</span> .He/she is
-                completely responsible for my above noted vehicle. He/she is solely responsible for any Accident, Theft,
-                Penalty, Fine or any Challan issued by any State (INDIA) police during this period. This Certificate is
-                valid from
-                <span class="values">{{fullData.certificateValidFromDate}}</span>to
-                <span class="values">{{fullData.certificateValidToDate}}</span> .
-            </div>
-
-
-            <div class="text-center fw-600 underline tt-upper pt-3 pb-2 fs-16">DETAILS OF VEHICLE’S OWNER</div>
-
-            <div class="paragraph textIndent50">
-                Owner Name Mr.
-                <span class="fw-600 underline">SEETHA RAM JAMI</span> S/o.
-                <span class="fw-600 underline">APPARAO JAMI</span>, Vehicle Number:
-                <span class="values">{{fullData.vehicleNo}}</span> , Certificate of Tax valid up to
-                lifetime,
-                PUC valid up to
-                <span class="values">{{fullData.pucValid}}</span>, Insurance valid up to dated
-                <span class="values">{{fullData.insuranceValid}}</span>.
-            </div>
-
-            <div class="paragraph textIndent50">
-                Owner have also handed over all the requested valid papers and ORIGINAL Documents of the
-                above said vehicle to
-                the driver. Owner doesn’t have any liabilities of Puncture and Battery problem. If any litigation in the
-                matter
-                of the said vehicle arises or any sort of
-                <span class="fw-600">Accident Happens</span> Mr.<span class="values">{{fullData.name}}</span> will be
-                held responsible in future for
-                driving, caring and using of the above said vehicle and not the Owner i.e.; <span
-                    class="fw-600 underline">SEETHA RAM JAMI</span>.
-            </div>
-
-            <div class="paragraph">In case of any disputes the decision of the owner SEETHA RAM JAMI will be final and
-                binding. </div>
-            <div class="paragraph">Litigation, if any subjected to Jurisdiction of Court of Kakinada.</div>
-            <div class="paragraph">I <span class="fw-600 underline">SEETHA RAM JAMI</span>, DECLARE UNDER PENALTY OF
-                PERJURY
-                UNDER THE LAWS OF THE STATE OF ANDHRAPRADESH, THAT THE ABOVE
-                CONTENTS ARE TRUE AND CORRECT TO THE BEST OF MY KNOWLEDGE AND BELIEF.</div>
+                <div class="paragraph textIndent50">
+                    I do hereby authorized to Mr.
+                    <span class="values">{{fullData.name}}</span> S/o.
+                    <span class="values">{{fullData.fatherOrHusband}}</span> Residing at
+                    <span class="values">{{fullData.address}}</span>,
+                    presently residing at DO. His/her Driving License Number:
+                    <span class="values">{{fullData.drivingLicenseNo}}</span>,
+                    dated
+                    <span class="values">{{fullData.drivingLicenseIssuedDate}}</span> valid up to
+                    <span class="values">{{fullData.drivingLicenseExpiryDate}}</span> by issuing authority -
+                    Licensing authority
+                    <span class="values">{{fullData.drivingLicenseAuthority}}</span> to drive my vehicle number: <span
+                        class="values">{{fullData.vehicleNo}}</span> as purely
+                    temporary from
+                    <span class="values">{{fullData.agreementFromDate}}</span> to
+                    <span class="values">{{fullData.agreementToDate}}</span> .He/she is
+                    completely responsible for my above noted vehicle. He/she is solely responsible for any Accident,
+                    Theft,
+                    Penalty, Fine or any Challan issued by any State (INDIA) police during this period. This Certificate
+                    is
+                    valid from
+                    <span class="values">{{fullData.certificateValidFromDate}}</span>to
+                    <span class="values">{{fullData.certificateValidToDate}}</span> .
+                </div>
+                <div class="paragraph textIndent50">
+                    In case of any extension in the Agreement date. This agreement will be valid upto _____________.
+                </div>
+                <div class="paragraph textIndent50">
+                    In case of any change in the Agreement date. The date of Certificate range will be extended i.e. _____________.
+                </div>
 
 
-            <div class="pt-7" fxLayout="row" fxLayoutAlign="space-evenly center">
-                <div>Signature of the Driver </div>
-                <div>Signature of the Vehicle Owner</div>
+                <div class="text-center fw-600 underline tt-upper pt-3 pb-2 fs-16">DETAILS OF VEHICLE’S OWNER</div>
+
+                <div class="paragraph textIndent50">
+                    Owner Name Mr.
+                    <span class="fw-600 underline">SEETHA RAM JAMI</span> S/o.
+                    <span class="fw-600 underline">APPARAO JAMI</span>, Vehicle Number:
+                    <span class="values">{{fullData.vehicleNo}}</span> , Certificate of Tax valid up to
+                    lifetime,
+                    PUC valid up to
+                    <span class="values">{{fullData.pucValid}}</span>, Insurance valid up to dated
+                    <span class="values">{{fullData.insuranceValid}}</span>.
+                </div>
+
+                <div class="paragraph textIndent50">
+                    Owner have also handed over all the requested valid papers and ORIGINAL Documents of the
+                    above said vehicle to
+                    the driver. Owner doesn’t have any liabilities of Puncture and Battery problem. If any litigation in
+                    the
+                    matter
+                    of the said vehicle arises or any sort of
+                    <span class="fw-600">Accident Happens</span> Mr.<span class="values">{{fullData.name}}</span> will
+                    be
+                    held responsible in future for
+                    driving, caring and using of the above said vehicle and not the Owner i.e.; <span
+                        class="fw-600 underline">SEETHA RAM JAMI</span>.
+                </div>
+
+                <div class="paragraph">In case of any disputes the decision of the owner SEETHA RAM JAMI will be final
+                    and
+                    binding. </div>
+                <div class="paragraph">Litigation, if any subjected to Jurisdiction of Court of Kakinada.</div>
+                <div class="paragraph">I <span class="fw-600 underline">SEETHA RAM JAMI</span>, DECLARE UNDER PENALTY OF
+                    PERJURY
+                    UNDER THE LAWS OF THE STATE OF ANDHRAPRADESH, THAT THE ABOVE
+                    CONTENTS ARE TRUE AND CORRECT TO THE BEST OF MY KNOWLEDGE AND BELIEF.</div>
+
+
+                <div class="pt-7" fxLayout="row" fxLayoutAlign="space-evenly center">
+                    <div>Signature of the Driver </div>
+                    <div>Signature of the Vehicle Owner</div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,9 +1,16 @@
 #agreement {
     padding: 20px 20px;
     margin: auto;
-    line-height: 1.4;
-    font-size: 13px;
     width: 600px;
+    
+    #printArea {
+        line-height: 1.4;
+        font-size: 13px !important;
+        font-family: 'Times New Roman', Times, serif !important;
+    }
+
+    // * {
+    // }
 
     .values {
         padding-left: 6px;

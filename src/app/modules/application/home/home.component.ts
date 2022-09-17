@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
         drivingLicenseNo: '1234567890',
         drivingLicenseIssuedDate: '09/08/2017',
         drivingLicenseExpiryDate: '09/08/2017',
+        phoneNo: '',
+        aadharNumber: '',
         drivingLicenseAuthority: '09/08/2017',
         vehicleNo: 'AP BZ 2021',
         agreementFromDate: '09/08/2017',
@@ -44,37 +46,41 @@ export class HomeComponent implements OnInit {
     ) {
 
         this.addform = addformbuild.group({
-            name: ['', [Validators.required]],
-            fatherOrHusband: ['', [Validators.required]],
-            address: ['', [Validators.required]],
-            drivingLicenseNo: ['', [Validators.required]],
-            drivingLicenseIssuedDate: ['', [Validators.required]],
-            drivingLicenseExpiryDate: ['', [Validators.required]],
-            drivingLicenseAuthority: ['', [Validators.required]],
-            vehicleNo: ['', [Validators.required]],
-            agreementFromDate: ['', [Validators.required]],
-            agreementToDate: ['', [Validators.required]],
-            certificateValidFromDate: ['', [Validators.required]],
-            certificateValidToDate: ['', [Validators.required]],
-            pucValid: ['', [Validators.required]],
-            insuranceValid: ['', [Validators.required]],
+            // name: ['', [Validators.required]],
+            // fatherOrHusband: ['', [Validators.required]],
+            // address: ['', [Validators.required]],
+            // drivingLicenseNo: ['', [Validators.required]],
+            // phoneNo: ['', [Validators.required]],
+            // aadharNumber: ['', [Validators.required]],
+            // drivingLicenseIssuedDate: ['', [Validators.required]],
+            // drivingLicenseExpiryDate: ['', [Validators.required]],
+            // drivingLicenseAuthority: ['', [Validators.required]],
+            // vehicleNo: ['', [Validators.required]],
+            // agreementFromDate: ['', [Validators.required]],
+            // agreementToDate: ['', [Validators.required]],
+            // certificateValidFromDate: ['', [Validators.required]],
+            // certificateValidToDate: ['', [Validators.required]],
+            // pucValid: ['', [Validators.required]],
+            // insuranceValid: ['', [Validators.required]],
 
 
-            
-            // name: ['Aditya Kumar', [Validators.required]],
-            // fatherOrHusband: ['Murthy', [Validators.required]],
-            // address: ['23-1-1/1B, Rajgopal center', [Validators.required]],
-            // drivingLicenseNo: ['1234567890', [Validators.required]],
-            // drivingLicenseIssuedDate: [new Date(), [Validators.required]],
-            // drivingLicenseExpiryDate: [new Date(), [Validators.required]],
-            // drivingLicenseAuthority: ['ads asd', [Validators.required]],
-            // vehicleNo: ['AP BZ 2021', [Validators.required]],
-            // agreementFromDate: [new Date(), [Validators.required]],
-            // agreementToDate: [new Date(), [Validators.required]],
-            // certificateValidFromDate: [new Date(), [Validators.required]],
-            // certificateValidToDate: [new Date(), [Validators.required]],
-            // pucValid: [new Date(), [Validators.required]],
-            // insuranceValid: [new Date(), [Validators.required]],
+
+            name: ['Aditya Kumar', [Validators.required]],
+            fatherOrHusband: ['Murthy', [Validators.required]],
+            address: ['23-1-1/1B, Rajgopal center', [Validators.required]],
+            drivingLicenseNo: ['1234567890', [Validators.required]],
+            phoneNo: ['123 - 132 - 2133', [Validators.required]],
+            aadharNumber: ['1231 - 2313 - 2123', [Validators.required]],
+            drivingLicenseIssuedDate: [new Date(), [Validators.required]],
+            drivingLicenseExpiryDate: [new Date(), [Validators.required]],
+            drivingLicenseAuthority: ['ads asd', [Validators.required]],
+            vehicleNo: ['AP BZ 2021', [Validators.required]],
+            agreementFromDate: [new Date(), [Validators.required]],
+            agreementToDate: [new Date(), [Validators.required]],
+            certificateValidFromDate: [new Date(), [Validators.required]],
+            certificateValidToDate: [new Date(), [Validators.required]],
+            pucValid: [new Date(), [Validators.required]],
+            insuranceValid: [new Date(), [Validators.required]],
 
         });
     }
@@ -106,13 +112,15 @@ export class HomeComponent implements OnInit {
                 name: this.addform.value.name,
                 fatherOrHusband: this.addform.value.fatherOrHusband,
                 address: this.addform.value.address,
+                phoneNo: this.addform.value.phoneNo,
+                aadharNumber: this.addform.value.aadharNumber,
                 drivingLicenseNo: this.addform.value.drivingLicenseNo,
                 drivingLicenseIssuedDate: DateTime.fromJSDate(this.addform.value.drivingLicenseIssuedDate).toFormat('MM-dd-yyyy'),
                 drivingLicenseExpiryDate: DateTime.fromJSDate(this.addform.value.drivingLicenseExpiryDate).toFormat('MM-dd-yyyy'),
                 drivingLicenseAuthority: this.addform.value.drivingLicenseAuthority,
                 vehicleNo: this.addform.value.vehicleNo,
-                agreementFromDate: DateTime.fromJSDate(this.addform.value.agreementFromDate).toFormat('MM-dd-yyyy'),
-                agreementToDate: DateTime.fromJSDate(this.addform.value.agreementToDate).toFormat('MM-dd-yyyy'),
+                agreementFromDate: DateTime.fromJSDate(this.addform.value.agreementFromDate).toFormat('MM-dd-yyyy HH:MM'),
+                agreementToDate: DateTime.fromJSDate(this.addform.value.agreementToDate).toFormat('MM-dd-yyyy HH:MM'),
                 certificateValidFromDate: DateTime.fromJSDate(this.addform.value.certificateValidFromDate).toFormat('MM-dd-yyyy'),
                 certificateValidToDate: DateTime.fromJSDate(this.addform.value.certificateValidToDate).toFormat('MM-dd-yyyy'),
                 pucValid: DateTime.fromJSDate(this.addform.value.pucValid).toFormat('MM-dd-yyyy'),
@@ -125,6 +133,7 @@ export class HomeComponent implements OnInit {
         this.showAgreement = true;
     }
 
+    // https://www.freakyjolly.com/how-to-export-pdf-from-html-in-angular-12/
     generatePDF() {
         // create temporary element to insert the html string and sanitize the html to make it readable
         // let reportInHtmlElem = document.createElement('div');
@@ -143,7 +152,7 @@ export class HomeComponent implements OnInit {
 
 
         var opt = {
-            margin: [400, 25, 25, 25], // top, left, bottom, right,,
+            margin: [340, 90, 25, 50], // top, left, bottom, right,,
             filename: this.fullData.name + '.pdf',
             image: { type: 'jpeg', quality: 1 },
             html2canvas: { dpi: 900, letterRendering: true, scale: 2 }, // , width: 1080, height: 1920
@@ -153,15 +162,19 @@ export class HomeComponent implements OnInit {
             pagebreak: { mode: ['avoid-all', 'css', 'legacy', 'whiteline'] }
         };
 
-        // html2pdf().from(reportInHtmlElem).set(opt).toPdf().get('pdf').then(function (pdfObject: any) {
-        html2pdf().from(this.htmlContent).set(opt).toPdf().get('pdf').then(function (pdfObject: any) {
+        // html2pdf().from(this.htmlContent).set(opt).save();
+
+        html2pdf().from(this.htmlContent).set(opt).then(function (pdfObject: any) {
+
             // // function to insert the header img
             // // get the number of pages in the pdf
             // let pdf_pages = pdfObject.internal.pages;
             // let headerImg = 'myImg';
 
             // // We are telling our pdfObject that we are now working on this page
-            // // pdfObject.setPage(i);
+            // pdfObject.setPage(1);
+            // pdfObject.setFont('Times');
+            // pdfObject.setFontSize('11');
             // // then we put our img header
             // pdfObject.addImage(headerImg, 0, 0, 0, 0);
         }).save();
@@ -171,7 +184,11 @@ export class HomeComponent implements OnInit {
         // remove temporary element
         // document.body.removeChild(reportInHtmlElem);
     }
+
     ngOnInit(): void {
+
+        // var doc = new jsPDF();
+        // console.log(doc.getFontList());
     }
 
 }

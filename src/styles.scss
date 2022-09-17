@@ -44,8 +44,16 @@
 .mat-form-field-wrapper {
     padding-bottom: 14px;
 }
-.mat-form-field:not(.mat-form-field-should-float) .mat-form-field-label{
+
+.mat-form-field:not(.mat-form-field-should-float) .mat-form-field-label {
     margin-top: -8px;
 }
 
 // reducing height material 
+
+// @media print {
+//     #printArea {
+//         font-family: 'Times New Roman', Times, serif !important;
+//         font-size: 10px !important;
+//     }
+// }
