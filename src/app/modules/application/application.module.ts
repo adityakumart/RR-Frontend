@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ApplicationRoutingModule } from './application-routing.module';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
