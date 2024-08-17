@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-material-components/datetime-picker": "^8.0.0",
+    "@angular-material-components/datetime-picker": "^16.0.1",
     "@angular/animations": "^15.2.10",
     "@angular/common": "^15.2.10",
     "@angular/compiler": "^15.2.10",
@@ -24,9 +24,11 @@
     "@types/luxon": "^3.0.1",
     "dom-to-image": "^2.6.0",
     "html2pdf.js": "^0.10.1",
+    "i": "^0.3.7",
     "jspdf": "^2.5.1",
     "luxon": "^3.0.3",
     "ngx-flexible-layout": "^18.0.2",
+    "npm": "^10.8.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
